@@ -44,7 +44,7 @@ Actual time needed to complete: 30 mins
 
 --- 
 
-Name of feature: Back-end API Task List
+Name of feature: Back-end API and Front End Task List
 
 Estimate of time needed to complete: 2 hrs
 
@@ -55,7 +55,7 @@ Finish time: _____
 Actual time needed to complete: _____
 
 ---
-Name of feature: ________________________________
+Name of feature: Errors
 
 Estimate of time needed to complete: _____
 
