@@ -21,7 +21,7 @@ app.get('/weather', (request, response) => {
 let cityName = request.query.cityName;
 
 let foundCIty = weatherData.find(weather => weather.city_name === cityName);
-let forecastArray = foundCity.ta.map(day => new Forecast(day));
+let forecastArray = foundCity.data.map(day => new Forecast(day));
 response.send(forecastArray);
 } catch (error) {
   throw new Error(`Weather Currently Unavailable`);
