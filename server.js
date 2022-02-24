@@ -2,7 +2,7 @@
 
 console.log('Hello World, from my server!')
 
-const { request, response } = require('express');
+
 const express = require ('express');
 const app = express();
 const PORT = process.env.PORT || 3002;
