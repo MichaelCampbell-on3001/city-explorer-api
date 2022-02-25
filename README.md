@@ -64,6 +64,18 @@ Start time: _____
 Finish time: _____
 
 Actual time needed to complete: _____
+---
+Name of feature: 5 Weather(Live)
+
+Estimate of time needed to complete: 3 hrs
+
+Start time: 6pm
+
+Finish time: _____
+
+Actual time needed to complete: _____
+
+---
 
 
 
