@@ -3,7 +3,7 @@
 console.log('Hello World, from my server!')
 
 
-const express = require ('express');
+const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3002;
 const weatherData = require('./data/weather.json');
@@ -16,16 +16,16 @@ app.get('/', (request, response) => {
   response.send('Hello from server');
 });
 
-app.get('/weather', (request, response) => {
-  try{
-let cityName = request.query.cityName;
+app.get('/weather', (request, response, next) => {
+  try {
+    let searchQuery = request.query.searchQuery;
 
-let foundCIty = weatherData.find(weather => weather.city_name === cityName);
-let forecastArray = foundCity.data.map(day => new Forecast(day));
-response.send(forecastArray);
-} catch (error) {
-  throw new Error(`Weather Currently Unavailable`);
-}
+    let foundCity = weatherData.find(weather => weather.city_name.toLowerCase() === searchQuery.toLowerCase());
+    let forecastArray = foundCity.data.map(day => new Forecast(day));
+    response.send(forecastArray);
+  } catch (error) {
+    next(error);
+  }
 });
 
 app.get('/sayHello', (request, response) => {
@@ -41,7 +41,7 @@ app.get('*', (request, response) => {
 
 class Forecast {
   constructor(day) {
-    this.date = daytime;
+    this.date = day.datetime;
     this.description = day.weather.description;
   }
 }
