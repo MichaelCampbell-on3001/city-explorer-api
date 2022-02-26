@@ -39,8 +39,8 @@ app.get('/movies', async (request, response, next) => {
     let url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${location}` 
     let results = await axios.get(url);
     console.log('RESULTS',results.data.results)
-  //  let movieArray = results.results.data.(title => new Movie(title));
-  //   response.send(moviesArray);
+  let movieArray = results.data.results.map(film => new Movie(film));
+  response.send(movieArray);
   } catch (error){
     next(error);
   }
@@ -64,13 +64,13 @@ class Forecast {
   }
 }
 
-// class Movies {
-//   constructor(title) {
-//     this.title = title;
-//     this.overview = overview;
-//     this.average_votes = score;
-//   }
-// }
+class Movie {
+  constructor(film) {
+    this.title = film.title;
+    //this.overview = film.overview;
+    
+  }
+}
 
 app.use((error, request, response, next) => {
   console.log(error.message);
