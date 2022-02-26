@@ -24,7 +24,7 @@ app.get('/weather', async (request, response, next) => {
     let lon = request.query.lon;
     let url = `http://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&key=${process.env.WEATHER_API_KEY}&days=5`
     let results = await axios.get(url);
-
+    //console.log('RESULTS',results)
     let forecastArray = results.data.data.map(day => new Forecast(day));
     response.send(forecastArray);
   } catch (error) {
@@ -32,18 +32,19 @@ app.get('/weather', async (request, response, next) => {
   }
 });
 
-// app.get('/movies', async (request, response, next) => { 
-//   try {
-//     let url = `https://api.themoviedb.org/3/search/movie?${process.env.MOVIE_API_KEY&query=${title}`
-//     let title = request.query.title
-//     let overview = request.query.overview
-//     let results = await axios.get(url);
-//     let movieArray = results.results.data.map(title => new Movie(title));
-//     response.send(moviesArray);
-//   } catch (error) {
-//     next(error);
-//   }
-// });
+app.get('/movies', async (request, response, next) => {
+  let location = request.query.location
+  console.log('MOVIE LOCATION',location)
+  try {
+    let url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${location}` 
+    let results = await axios.get(url);
+    console.log('RESULTS',results.data.results)
+  //  let movieArray = results.results.data.(title => new Movie(title));
+  //   response.send(moviesArray);
+  } catch (error){
+    next(error);
+  }
+});
 
 app.get('/sayHello', (request, response) => {
   let name = request.query.name;
