@@ -7,6 +7,7 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3002;
 const weatherData = require('./data/weather.json');
+// I dont need the const weatherData?
 const axios = require('axios');
 require('dotenv').config();
 const cors = require('cors');
@@ -19,11 +20,12 @@ app.get('/', (request, response) => {
 // Make async call and await, Bring in weather url
 app.get('/weather', async (request, response, next) => { 
   try {
-    let searchQuery = request.query.searchQuery;
-    // let url = `http://api.weatherbit.io/v2.0/forecast/daily`
-
-    let foundCity = weatherData.find(weather => weather.city_name.toLowerCase() === searchQuery.toLowerCase());
-    let forecastArray = foundCity.data.map(day => new Forecast(day));
+    let lat = request.query.lat;
+    let lon = request.query.lon;
+    let url = `http://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&key=${process.env.WEATHER_API_KEY}&days=5`
+    let results = await axios.get(url);
+    
+    let forecastArray = results.data.data.map(day => new Forecast(day));
     response.send(forecastArray);
   } catch (error) {
     next(error);
