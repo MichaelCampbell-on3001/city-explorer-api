@@ -6,7 +6,7 @@ console.log('Hello World, from my server!')
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3002;
-const weatherData = require('./data/weather.json');
+//const weatherData = require('./data/weather.json');
 // I dont need the const weatherData?
 const axios = require('axios');
 require('dotenv').config();
@@ -17,20 +17,33 @@ app.use(cors());
 app.get('/', (request, response) => {
   response.send('Hello from server');
 });
-// Make async call and await, Bring in weather url
-app.get('/weather', async (request, response, next) => { 
+
+app.get('/weather', async (request, response, next) => {
   try {
     let lat = request.query.lat;
     let lon = request.query.lon;
     let url = `http://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&key=${process.env.WEATHER_API_KEY}&days=5`
     let results = await axios.get(url);
-    
+
     let forecastArray = results.data.data.map(day => new Forecast(day));
     response.send(forecastArray);
   } catch (error) {
     next(error);
   }
 });
+
+// app.get('/movies', async (request, response, next) => { 
+//   try {
+//     let url = `https://api.themoviedb.org/3/search/movie?${process.env.MOVIE_API_KEY&query=${title}`
+//     let title = request.query.title
+//     let overview = request.query.overview
+//     let results = await axios.get(url);
+//     let movieArray = results.results.data.map(title => new Movie(title));
+//     response.send(moviesArray);
+//   } catch (error) {
+//     next(error);
+//   }
+// });
 
 app.get('/sayHello', (request, response) => {
   let name = request.query.name;
@@ -49,6 +62,14 @@ class Forecast {
     this.description = day.weather.description;
   }
 }
+
+// class Movies {
+//   constructor(title) {
+//     this.title = title;
+//     this.overview = overview;
+//     this.average_votes = score;
+//   }
+// }
 
 app.use((error, request, response, next) => {
   console.log(error.message);
