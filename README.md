@@ -9,10 +9,15 @@ City App Api is the backend component to the City App project and provides a ser
 
 ## Getting Started
 [] Create a repo in GitHub with a Read.me file and name it city-explorer-api. Then clone the repo to your machine.
+
 [] Run command npm init in your terminal to create a new project. 
+
 [] Use NPM instal to add the rewuired dependencies.
+
 [] Assemble your file tree and begin populating it with JSON data provided.
+
 [] Happy Hacking!
+
 
 
 ## Architecture
@@ -25,6 +30,12 @@ We are creating a backen server that uses express and cors to deliver results of
 02-022-2022 3:30pm - Began setup of city explore-api. Trello Card 1 complete"
 
 02-022-2022 4:00pm - Began Trello card 2
+
+02-022-2022 3:00pm - Completed Trello card 3
+
+02-022-2022 5:00pm - Began Trello card 3
+
+
 
 <!-- -02-022-2022 0:00pm - Descirbe what I did-->
 
@@ -50,26 +61,38 @@ Estimate of time needed to complete: 2 hrs
 
 Start time: 4:15 
 
-Finish time: _____
+Finish time: 6pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 1:45mins
 
 ---
 Name of feature: Errors
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 2
 
-Start time: _____
+Start time: 5pm
 
-Finish time: _____
+Finish time: 6pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 1
 ---
 Name of feature: 5 Weather(Live)
 
 Estimate of time needed to complete: 3 hrs
 
-Start time: 6pm
+Start time: 2pm - 6pm
+
+Finish time: 1pm- 3pm
+
+Actual time needed to complete: 6
+
+---
+
+Name of feature: Movies
+
+Estimate of time needed to complete: 3 hrs
+
+Start time: 5pm
 
 Finish time: _____
 
