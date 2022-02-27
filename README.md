@@ -94,9 +94,42 @@ Estimate of time needed to complete: 3 hrs
 
 Start time: 5pm
 
-Finish time: _____
+Finish time: 6pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 1 hr
+
+---
+Name of feature: Publish
+
+Estimate of time needed to complete: 2 hours
+
+Start time: 4 pm
+
+Finish time: 5pm
+
+Actual time needed to complete: 1 hr
+
+---
+Name of feature: Refactor
+
+Estimate of time needed to complete: 3 hrs
+
+Start time: 1 pm
+
+Finish time: ____
+
+Actual time needed to complete: ____
+
+---
+Name of feature: Performance
+
+Estimate of time needed to complete: ____
+
+Start time: ____
+
+Finish time: ____
+
+Actual time needed to complete: ____
 
 ---
 
