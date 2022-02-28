@@ -2,7 +2,7 @@
 
 
 **Author**: Michael Campbell
-**Version**: 1.0.0 
+**Version**: 1.1.3 
 ## Overview
 
 City App Api is the backend component to the City App project and provides a server to make calls to the API.
@@ -34,6 +34,22 @@ We are creating a backen server that uses express and cors to deliver results of
 02-022-2022 3:00pm - Completed Trello card 3
 
 02-022-2022 5:00pm - Began Trello card 3
+
+02-023-2022 1:00pm - Began Trello card 4
+
+02-023-2022 5:00pm - Got really stuck on bootstrap
+
+02-024-2022 1:00pm - After the recommendation from the instructor I am moving on without bootstrap.
+
+02-025-2022 9:00pm - Weather API call successful
+
+02-026-2022 5:00pm - Movie API call successful
+
+02-027-2022 1:00pm - Refactoring
+
+
+
+
 
 
 
@@ -94,9 +110,42 @@ Estimate of time needed to complete: 3 hrs
 
 Start time: 5pm
 
-Finish time: _____
+Finish time: 6pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 1 hr
+
+---
+Name of feature: Publish
+
+Estimate of time needed to complete: 2 hours
+
+Start time: 4 pm
+
+Finish time: 5pm
+
+Actual time needed to complete: 1 hr
+
+---
+Name of feature: Refactor
+
+Estimate of time needed to complete: 3 hrs
+
+Start time: 1 pm
+
+Finish time: ____
+
+Actual time needed to complete: ____
+
+---
+Name of feature: Performance
+
+Estimate of time needed to complete: ____
+
+Start time: ____
+
+Finish time: ____
+
+Actual time needed to complete: ____
 
 ---
 
