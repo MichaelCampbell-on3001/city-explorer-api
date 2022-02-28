@@ -12,25 +12,33 @@ const axios = require('axios');
 require('dotenv').config();
 const cors = require('cors');
 
+// import modules
+const getWeather = require('./weather.js');
+
 app.use(cors());
 
 app.get('/', (request, response) => {
   response.send('Hello from server');
 });
 
-app.get('/weather', async (request, response, next) => {
-  try {
-    let lat = request.query.lat;
-    let lon = request.query.lon;
-    let url = `http://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&key=${process.env.WEATHER_API_KEY}&days=5`
-    let results = await axios.get(url);
-    //console.log('RESULTS',results)
-    let forecastArray = results.data.data.map(day => new Forecast(day));
-    response.send(forecastArray);
-  } catch (error) {
-    next(error);
-  }
-});
+app.get('/weather', getWeather);
+
+
+// async (request, response, next) => {
+//   try {
+//     let lat = request.query.lat;
+//     let lon = request.query.lon;
+//     let url = `http://api.weatherbit.io/v2.0/forecast/daily?lat=${lat}&lon=${lon}&key=${process.env.WEATHER_API_KEY}&days=5`
+//     let results = await axios.get(url);
+//     //console.log('RESULTS',results)
+//     let forecastArray = results.data.data.map(day => new Forecast(day));
+//     response.send(forecastArray);
+//   } catch (error) {
+//     next(error);
+//   }
+// });
+
+
 
 app.get('/movies', async (request, response, next) => {
   let location = request.query.location
@@ -57,12 +65,12 @@ app.get('*', (request, response) => {
   response.status(404).send('Not Found');
 });
 
-class Forecast {
-  constructor(day) {
-    this.date = day.datetime;
-    this.description = day.weather.description;
-  }
-}
+// class Forecast {
+//   constructor(day) {
+//     this.date = day.datetime;
+//     this.description = day.weather.description;
+//   }
+// }
 
 class Movie {
   constructor(film) {
